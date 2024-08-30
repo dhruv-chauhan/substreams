@@ -1,0 +1,10 @@
+*.log
+
+**/build/
+**/dev-environment/data/
+**/generated/
+**/node_modules/
+**/substreams/
+**/src/pb/
+**/logs.txt
+**/package-lock.json
