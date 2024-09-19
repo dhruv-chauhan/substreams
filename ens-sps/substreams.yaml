@@ -34,4 +34,63 @@ modules:
     updatePolicy: append
     valueType: string
 
+  - name: store_outgoing_ens_names_by_user
+    kind: store
+    initialBlock: 9380410
+    inputs:
+      - map: map_events
+    updatePolicy: append
+    valueType: string
+
+  - name: map_test
+    kind: map
+    initialBlock: 9380410
+    inputs:
+      - store: store_incoming_ens_names_by_user
+        mode: deltas
+      - store: store_outgoing_ens_names_by_user
+        mode: deltas
+    output:
+      type: proto:contract.v1.Events
+
+  - name: store_ens_names_by_user
+    kind: store
+    initialBlock: 9380410
+    inputs:
+      - store: store_incoming_ens_names_by_user
+      - store: store_incoming_ens_names_by_user
+        mode: deltas
+      - store: store_outgoing_ens_names_by_user
+      - store: store_outgoing_ens_names_by_user
+        mode: deltas
+    updatePolicy: set
+    valueType: string
+
+  - name: map_test_2
+    kind: map
+    initialBlock: 9380410
+    inputs:
+      - store: store_ens_names_by_user
+        mode: deltas
+    output:
+      type: proto:contract.v1.Events
+
+  - name: store_user_by_ens_name
+    kind: store
+    initialBlock: 9380410
+    inputs:
+      - store: store_ens_names_by_user
+        mode: deltas
+    updatePolicy: set
+    valueType: string
+
+  - name: map_test_3
+    kind: map
+    initialBlock: 9380410
+    inputs:
+      - store: store_user_by_ens_name
+        mode: deltas
+    output:
+      type: proto:contract.v1.Events
+
 network: mainnet
