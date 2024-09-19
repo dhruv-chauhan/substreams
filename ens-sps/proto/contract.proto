@@ -1,0 +1,298 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package contract.v1;
+message Events {
+    repeated Oldethregistrar_NameRegistered oldethregistrar_name_registereds = 1;
+    repeated Oldethregistrar_NameRenewed oldethregistrar_name_reneweds = 2;
+    repeated Oldethregistrar_NewPriceOracle oldethregistrar_new_price_oracles = 3;
+    repeated Oldethregistrar_OwnershipTransferred oldethregistrar_ownership_transferreds = 4;
+    repeated Baseregistrar_Approval baseregistrar_approvals = 5;
+    repeated Baseregistrar_ApprovalForAll baseregistrar_approval_for_alls = 6;
+    repeated Baseregistrar_ControllerAdded baseregistrar_controller_addeds = 7;
+    repeated Baseregistrar_ControllerRemoved baseregistrar_controller_removeds = 8;
+    repeated Baseregistrar_NameMigrated baseregistrar_name_migrateds = 9;
+    repeated Baseregistrar_NameRegistered baseregistrar_name_registereds = 10;
+    repeated Baseregistrar_NameRenewed baseregistrar_name_reneweds = 11;
+    repeated Baseregistrar_OwnershipTransferred baseregistrar_ownership_transferreds = 12;
+    repeated Baseregistrar_Transfer baseregistrar_transfers = 13;
+    repeated Ethregistrar_NameRegistered ethregistrar_name_registereds = 14;
+    repeated Ethregistrar_NameRenewed ethregistrar_name_reneweds = 15;
+    repeated Ethregistrar_OwnershipTransferred ethregistrar_ownership_transferreds = 16;
+    repeated Namewrapper_Approval namewrapper_approvals = 17;
+    repeated Namewrapper_ApprovalForAll namewrapper_approval_for_alls = 18;
+    repeated Namewrapper_ControllerChanged namewrapper_controller_changeds = 19;
+    repeated Namewrapper_ExpiryExtended namewrapper_expiry_extendeds = 20;
+    repeated Namewrapper_FusesSet namewrapper_fuses_sets = 21;
+    repeated Namewrapper_NameUnwrapped namewrapper_name_unwrappeds = 22;
+    repeated Namewrapper_NameWrapped namewrapper_name_wrappeds = 23;
+    repeated Namewrapper_OwnershipTransferred namewrapper_ownership_transferreds = 24;
+    repeated Namewrapper_TransferBatch namewrapper_transfer_batches = 25;
+    repeated Namewrapper_TransferSingle namewrapper_transfer_singles = 26;
+    repeated Namewrapper_Uri namewrapper_uris = 27;
+    repeated Dnsregistrar_Claim dnsregistrar_claims = 28;
+    repeated Dnsregistrar_NewPublicSuffixList dnsregistrar_new_public_suffix_lists = 29;
+}
+message Oldethregistrar_NameRegistered {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    string name = 5;
+    bytes label = 6;
+    bytes owner = 7;
+    string cost = 8;
+    string expires = 9;
+}
+message Oldethregistrar_NameRenewed {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    string name = 5;
+    bytes label = 6;
+    string cost = 7;
+    string expires = 8;
+}
+message Oldethregistrar_NewPriceOracle {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes oracle = 5;
+}
+message Oldethregistrar_OwnershipTransferred {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes previous_owner = 5;
+    bytes new_owner = 6;
+}
+  
+message Baseregistrar_Approval {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes owner = 5;
+    bytes approved = 6;
+    string token_id = 7;
+}
+message Baseregistrar_ApprovalForAll {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes owner = 5;
+    bytes operator = 6;
+    bool approved = 7;
+}
+message Baseregistrar_ControllerAdded {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes controller = 5;
+}
+message Baseregistrar_ControllerRemoved {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes controller = 5;
+}
+message Baseregistrar_NameMigrated {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    string id = 5;
+    bytes owner = 6;
+    string expires = 7;
+}
+message Baseregistrar_NameRegistered {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    string id = 5;
+    bytes owner = 6;
+    string expires = 7;
+}
+message Baseregistrar_NameRenewed {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    string id = 5;
+    string expires = 6;
+}
+message Baseregistrar_OwnershipTransferred {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes previous_owner = 5;
+    bytes new_owner = 6;
+}
+message Baseregistrar_Transfer {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes from = 5;
+    bytes to = 6;
+    string token_id = 7;
+}
+  
+message Ethregistrar_NameRegistered {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    string name = 5;
+    bytes label = 6;
+    bytes owner = 7;
+    string base_cost = 8;
+    string premium = 9;
+    string expires = 10;
+}
+message Ethregistrar_NameRenewed {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    string name = 5;
+    bytes label = 6;
+    string cost = 7;
+    string expires = 8;
+}
+message Ethregistrar_OwnershipTransferred {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes previous_owner = 5;
+    bytes new_owner = 6;
+}
+  
+message Namewrapper_Approval {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes owner = 5;
+    bytes approved = 6;
+    string token_id = 7;
+}
+message Namewrapper_ApprovalForAll {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes account = 5;
+    bytes operator = 6;
+    bool approved = 7;
+}
+message Namewrapper_ControllerChanged {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes controller = 5;
+    bool active = 6;
+}
+message Namewrapper_ExpiryExtended {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes node = 5;
+    uint64 expiry = 6;
+}
+message Namewrapper_FusesSet {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes node = 5;
+    uint64 fuses = 6;
+}
+message Namewrapper_NameUnwrapped {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes node = 5;
+    bytes owner = 6;
+}
+message Namewrapper_NameWrapped {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes node = 5;
+    bytes name = 6;
+    bytes owner = 7;
+    uint64 fuses = 8;
+    uint64 expiry = 9;
+}
+message Namewrapper_OwnershipTransferred {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes previous_owner = 5;
+    bytes new_owner = 6;
+}
+message Namewrapper_TransferBatch {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes operator = 5;
+    bytes from = 6;
+    bytes to = 7;
+    repeated string ids = 8;
+    repeated string values = 9;
+}
+message Namewrapper_TransferSingle {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes operator = 5;
+    bytes from = 6;
+    bytes to = 7;
+    string id = 8;
+    string value = 9;
+}
+message Namewrapper_Uri {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    string value = 5;
+    string id = 6;
+}
+  
+message Dnsregistrar_Claim {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes node = 5;
+    bytes owner = 6;
+    bytes dnsname = 7;
+    uint64 inception = 8;
+}
+message Dnsregistrar_NewPublicSuffixList {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    bytes suffixes = 5;
+}
+  
